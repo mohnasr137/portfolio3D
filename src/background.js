@@ -1,9 +1,12 @@
-// Change the import to use the npm package
 import * as THREE from 'three';
-import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js';
+import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
 
-let camera, controls, scene, renderer; 
+let camera, controls, scene, renderer;
 const frustumSize = 1000;
+let assetsLoaded = false;
+
+// Initialize loading screen handling
+const loadingScreen = document.getElementById('loadingScreen');
 
 init();
 animate();
@@ -73,14 +76,23 @@ function init() {
 
     // Handle window resize
     window.addEventListener('resize', onWindowResize);
+    
+    // Hide loading screen after everything is initialized
+    // We'll use a slight delay to ensure everything is rendered
+    setTimeout(() => {
+        if (loadingScreen) {
+            loadingScreen.classList.add('fade-out');
+            // Remove from DOM after transition completes
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 500);
+        }
+        assetsLoaded = true;
+    }, 1500); // Adjust this delay as needed
 }
 
 function onWindowResize() {
-    const aspect = window.innerWidth / window.innerHeight;
-    camera.aspect = aspect;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    controls.handleResize();
+    // ... existing code ...
 }
 
 function animate() {

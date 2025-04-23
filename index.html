@@ -8,6 +8,11 @@
 		<!-- Remove the import map as Vite will handle imports -->
 	</head>
 	<body>
+		<!-- Add loading screen -->
+		<div id="loadingScreen" class="loading-screen">
+			<div class="loader"></div>
+			<p>Loading...</p>
+		</div>
 		<div class="container">
 			<nav>
 				<a href="#about">About</a>
@@ -45,10 +50,11 @@
 				</div>
 				<div class="project-grid">
                     <div class="project-card" data-categories="web3d">
-						<h3>Earth3D</h3>
-						<p>Interactive 3D Earth model with realistic textures and rotation using Three.js.</p>
-						<a href="https://github.com/mohnasr137" target="_blank">View Project</a>
-					</div>
+                        <h3>Earth3D</h3>
+                        <p>Interactive 3D Earth model with realistic textures and rotation using Three.js.</p>
+                        <div class="category-indicator"></div>
+                        <a href="https://github.com/mohnasr137" target="_blank">View Project</a>
+                    </div>
 					<div class="project-card" data-categories="web3d">
                         <h3>Cube3D</h3>
 						<p>Interactive 3D cube with physics simulation and user interaction capabilities.</p>
@@ -181,6 +187,5 @@
 		<!-- Update script references to use type="module" for both scripts -->
 		<script type="module" src="./src/background.js"></script>
 		<script type="module" src="./src/main.js"></script>
-    </script>
 </body>
 </html>

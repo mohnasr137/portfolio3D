@@ -36,7 +36,7 @@
 			<div class="mobile-menu-btn">≡</div>
 			<section id="about">
 				<h1>Mohamed Nasr</h1>
-				<p class="intro-text">Welcome!.. I'm a Backend Developer with strong software engineering foundations and Node.js expertise. Zagazig University graduate with
+				<p class="intro-text">Welcome... I'm a Backend Developer with strong software engineering foundations and Node.js expertise. Zagazig University graduate with
 					comprehensive knowledge of development principles, data structures, and algorithms. Delivers scalable backend
 					solutions with commitment to technical innovation and growth.</p>
 			</section>
@@ -177,5 +177,25 @@
 		<!-- Update script references to use type="module" for both scripts -->
 		<script type="module" src="./src/background.js"></script>
 		<script type="module" src="./src/main.js"></script>
+
+		<script>
+		    // Mobile menu functionality
+		    document.addEventListener('DOMContentLoaded', function() {
+		        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+		        const mobileNav = document.querySelector('.mobile-nav');
+		        
+		        mobileMenuBtn.addEventListener('click', function() {
+		            mobileNav.classList.toggle('active');
+		        });
+		        
+		        // Close mobile menu when a link is clicked
+		        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+		        mobileNavLinks.forEach(link => {
+		            link.addEventListener('click', function() {
+		                mobileNav.classList.remove('active');
+		            });
+		        });
+		    });
+		</script>
 </body>
 </html>

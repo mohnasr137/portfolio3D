@@ -1,0 +1,421 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
+}
+
+h1, h2 {
+    color: #fff;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.5rem;
+}
+
+nav {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #4fc3f7;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+    padding: 5px 0;
+}
+
+nav a:hover {
+    color: #81d4fa;
+    border-bottom: 2px solid #81d4fa;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+.contact-info a {
+    color: #4fc3f7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover {
+    color: #81d4fa;
+    text-decoration: underline;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+/* Google Play style category styles */
+.category-filters {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    gap: 15px;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.category-filters::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.category-btn {
+    background: rgba(79, 195, 247, 0.1);
+    color: #4fc3f7;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.category-btn:hover {
+    background: rgba(79, 195, 247, 0.3);
+    transform: translateY(-2px);
+}
+
+.category-btn.active {
+    background: #4fc3f7;
+    color: #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Project card enhancements */
+.project-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #4fc3f7, #81d4fa);
+    opacity: 0.7;
+}
+
+.project-card.hidden {
+    display: none;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: #4fc3f7;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.project-card a {
+    display: inline-block;
+    background: #4fc3f7;
+    color: #000;
+    padding: 8px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+.project-card a:hover {
+    background: #81d4fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Skills section */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.skill-tag {
+    background: rgba(79, 195, 247, 0.2);
+    color: #4fc3f7;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: #4fc3f7;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #81d4fa;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* Mobile navigation elements - hidden by default on large screens */
+.mobile-nav {
+    display: none;
+}
+
+.mobile-menu-btn {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Hide standard navigation on mobile */
+    nav {
+        display: none;
+    }
+    
+    /* Show mobile menu button */
+    .mobile-menu-btn {
+        display: block;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #4fc3f7;
+        color: #000;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 50px;
+        font-size: 24px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        z-index: 100;
+        cursor: pointer;
+    }
+    
+    /* Mobile navigation overlay */
+    .mobile-nav.active {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.9);
+        z-index: 99;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .mobile-nav a {
+        margin: 10px 0;
+        color: #4fc3f7;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.3rem;
+        padding: 10px 20px;
+        border-radius: 30px;
+        transition: all 0.3s;
+    }
+    
+    .mobile-nav a:hover {
+        background: rgba(79, 195, 247, 0.2);
+    }
+    
+    /* Adjust headings */
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Adjust project cards */
+    .project-card {
+        padding: 15px;
+        min-height: 180px;
+    }
+    
+    /* Adjust skills container */
+    .skills-container {
+        justify-content: center;
+    }
+    
+    /* Adjust intro text */
+    .intro-text {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    /* Improve category filters on mobile */
+    .category-filters {
+        padding: 10px 5px;
+        margin-bottom: 15px;
+        gap: 10px;
+        justify-content: flex-start;
+        width: 100%;
+        overflow-x: scroll;
+    }
+    
+    .category-btn {
+        padding: 8px 16px;
+        min-width: auto;
+        font-size: 0.9rem;
+        flex-shrink: 0;
+    }
+    
+    .project-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .project-card a {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .skill-tag {
+        font-size: 0.8rem;
+        padding: 4px 12px;
+    }
+    
+    .category-filters {
+        padding: 8px 0;
+        gap: 8px;
+    }
+    
+    .category-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        min-width: 80px;
+    }
+    
+    .project-card a {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .skill-tag {
+        font-size: 0.8rem;
+        padding: 4px 12px;
+    }
+}
+
+/* Tablet devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        max-width: 90%;
+    }
+    
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Ensure the background canvas is responsive */
+@media (max-width: 1024px) {
+    canvas {
+        height: 100%;
+        width: 100%;
+    }
+}

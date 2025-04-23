@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Mohamed Nasr - Portfolio</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="stylesheet" href="./src/styles.css">
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+					"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<nav>
+				<a href="#about">About</a>
+				<a href="#projects">Projects</a>
+				<a href="#skills">Skills</a>
+				<a href="#education">Education</a>
+				<a href="#experience">Experience</a>
+				<a href="#activities">Student Activities</a>
+				<a href="#contact">Contact</a>
+			</nav>
+			<!-- Mobile Navigation -->
+			<div class="mobile-nav">
+				<a href="#about">About</a>
+				<a href="#projects">Projects</a>
+				<a href="#skills">Skills</a>
+				<a href="#education">Education</a>
+				<a href="#experience">Experience</a>
+				<a href="#activities">Student Activities</a>
+				<a href="#contact">Contact</a>
+			</div>
+			<div class="mobile-menu-btn">≡</div>
+			<section id="about">
+				<h1>Mohamed Nasr</h1>
+				<p class="intro-text">Welcome to my portfolio! I am a Backend Developer with a strong foundation in software engineering and web technologies, specializing in Node.js. Currently pursuing a Bachelor of Science in Computer Science at Zagazig University. I'm passionate about creating scalable, high-quality backend solutions with a commitment to continuous technical growth and innovation.</p>
+			</section>
+			<section id="projects">
+                <h2>Projects</h2>
+				<div class="category-filters">
+                    <button class="category-btn active" data-category="all">All Projects</button>
+					<button class="category-btn" data-category="nodejs">Node.js</button>
+					<button class="category-btn" data-category="ml">Flask & ML/DL</button>
+					<button class="category-btn" data-category="web3d">Web3D</button>
+					<button class="category-btn" data-category="figma">Figma</button>
+					<button class="category-btn" data-category="play">Google Play</button>
+				</div>
+				<div class="project-grid">
+                    <div class="project-card" data-categories="web3d">
+						<h3>Earth3D</h3>
+						<p>Interactive 3D Earth model with realistic textures and rotation using Three.js.</p>
+						<a href="https://github.com/mohnasr137" target="_blank">View Project</a>
+					</div>
+					<div class="project-card" data-categories="web3d">
+                        <h3>Cube3D</h3>
+						<p>Interactive 3D cube with physics simulation and user interaction capabilities.</p>
+						<a href="https://github.com/mohnasr137" target="_blank">View Project</a>
+					</div>
+					<div class="project-card" data-categories="web3d">
+						<h3>Gravity3D</h3>
+						<p>Physics simulation demonstrating gravity effects on multiple objects using Rapier.js and Three.js.</p>
+						<a href="https://github.com/mohnasr137" target="_blank">View Project</a>
+					</div>
+					<div class="project-card" data-categories="web3d nodejs">
+						<h3>Inscryption</h3>
+						<p>3D interactive web application implementing multiple cipher algorithms with AI-driven decryption capabilities.</p>
+						<a href="https://github.com/mohnasr137" target="_blank">View Project</a>
+					</div>
+					<div class="project-card" data-categories="nodejs figma">
+						<h3>UI-Evolution</h3>
+						<p>System utilizing AI to automate the conversion of textual descriptions into UI components, improving design efficiency.</p>
+						<a href="https://github.com/mohnasr137" target="_blank">View Project</a>
+					</div>
+					<div class="project-card" data-categories="nodejs">
+                        <h3>Remote Explorer</h3>
+						<p>Application to enable remote file exploration on PC from mobile, allowing users to browse files and download folders as ZIP archives.</p>
+						<a href="https://github.com/mohnasr137" target="_blank">View Project</a>
+					</div>
+					<div class="project-card" data-categories="ml">
+                        <h3>Autism Assessment</h3>
+						<p>Machine learning models for autism assessment, including face recognition and handwriting analysis.</p>
+						<a href="https://github.com/mohnasr137" target="_blank">View Project</a>
+					</div>
+					<div class="project-card" data-categories="ml">
+                        <h3>Pattern Analysis</h3>
+						<p>Deep learning model for analyzing coloring patterns to assist in autism diagnosis.</p>
+						<a href="https://github.com/mohnasr137" target="_blank">View Project</a>
+					</div>
+					<div class="project-card" data-categories="nodejs">
+                        <h3>Tadabar App</h3>
+						<p>Functionality to handle and display rules for proper pronunciation and recitation of the Quran, with enhanced audio file compression.</p>
+						<a href="https://github.com/mohnasr137" target="_blank">View Project</a>
+					</div>
+				</div>
+			</section>
+			<section id="skills">
+				<h2>Skills</h2>
+				<div class="skills-container">
+                    <div class="skill-tag">JavaScript</div>
+					<div class="skill-tag">Node.js</div>
+					<div class="skill-tag">Express.js</div>
+					<div class="skill-tag">MongoDB</div>
+					<div class="skill-tag">HTML/CSS</div>
+					<div class="skill-tag">C/C++</div>
+					<div class="skill-tag">Python</div>
+					<div class="skill-tag">Flask</div>
+					<div class="skill-tag">Three.js</div>
+					<div class="skill-tag">Rapier.js</div>
+					<div class="skill-tag">TensorFlow</div>
+					<div class="skill-tag">Scikit-learn</div>
+					<div class="skill-tag">Git</div>
+					<div class="skill-tag">PostgreSQL</div>
+					<div class="skill-tag">Figma</div>
+				</div>
+			</section>
+            <section id="education">
+                <h2>Education</h2>
+                <div class="project-card">
+                    <h3>Zagazig University</h3>
+                    <p>Bachelor of Science in Computer Science</p>
+                    <p>Zagazig, September 2021 – May 2025</p>
+                </div>
+            </section>
+			<section id="experience">
+				<h2>Experience</h2>
+				<div class="project-card">
+					<h3>Backend Lead - Open Source Community</h3>
+					<p>November 2024 – August 2025 | Zagazig</p>
+					<p>Led backend development, designing and implementing robust server-side logic with Node.js and Express. Conducted online training and mentorship for team members.</p>
+				</div>
+				<div class="project-card">
+					<h3>Backend Developer - Binary Plus Team</h3>
+					<p>September 2023 – September 2025 | Zagazig</p>
+					<p>Developed and maintained server-side logic for web applications using Node.js and Express. Assisted in frontend development, improving user interface consistency.</p>
+				</div>
+				<div class="project-card">
+					<h3>Backend Developer - 365 Developed Team</h3>
+					<p>September 2023 – September 2025 | Zagazig</p>
+					<p>Developed the backend for an app that aids in understanding autism and supports in diagnosing autism in children.</p>
+				</div>
+				<div class="project-card">
+					<h3>Backend Instructor - Zigzag Community</h3>
+					<p>November 2024 – August 2025 | Zagazig</p>
+					<p>Created roadmaps for sessions and conducted training to teach backend development to new recruits.</p>
+				</div>
+			</section>
+			<section id="activities">
+				<h2>Student Activities</h2>
+				<div class="project-card">
+					<h3>Technical Committee Member - IEEE Student Branch</h3>
+					<p>September 2022 – Present | Zagazig University</p>
+					<p>Organized technical workshops and coding competitions for students. Contributed to the development of the branch's website and technical resources.</p>
+				</div>
+				<div class="project-card">
+					<h3>Volunteer - Computer Science Student Union</h3>
+					<p>October 2021 – May 2023 | Zagazig University</p>
+					<p>Assisted in organizing departmental events and provided peer tutoring in programming courses for junior students.</p>
+				</div>
+				<div class="project-card">
+					<h3>Participant - ACM Programming Competitions</h3>
+					<p>2022 – 2023 | Regional Level</p>
+					<p>Participated in multiple competitive programming contests, developing problem-solving skills and algorithmic thinking.</p>
+				</div>
+			</section>
+			<section id="contact">
+				<h2>Contact</h2>
+				<p class="contact-info">
+					Location: Zefta, Al Gharbeya, Egypt<br>
+					Phone: <a href="tel:+201093669048">+201093669048</a><br>
+					Email: <a href="mailto:mohnasr113377@gmail.com">mohnasr113377@gmail.com</a><br>
+					LinkedIn: <a href="https://linkedin.com/in/mohnasr137" target="_blank">linkedin.com/in/mohnasr137</a><br>
+					GitHub: <a href="https://github.com/mohnasr137" target="_blank">github.com/mohnasr137</a>
+				</p>
+				<div class="social-links">
+					<!-- You can add social media icons here using Font Awesome or similar -->
+				</div>
+			</section>
+			<footer>
+				&copy; 2023 Mohamed Nasr. All rights reserved.
+			</footer>
+		</div>
+
+		<script type="module" src="./src/background.js"></script>
+		<script src="./src/main.js"></script>
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+            
+            menuBtn.addEventListener('click', function() {
+                mobileNav.classList.toggle('active');
+            });
+            
+            // Close menu when a link is clicked
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileNav.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

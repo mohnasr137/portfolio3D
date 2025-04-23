@@ -1,3 +1,4 @@
+// Change the import to use the npm package
 import * as THREE from 'three';
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js';
 

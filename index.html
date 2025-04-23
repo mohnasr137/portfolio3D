@@ -5,14 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link rel="stylesheet" href="./src/styles.css">
-		<script type="importmap">
-			{
-				"imports": {
-					"three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-					"three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-				}
-			}
-		</script>
+		<!-- Remove the import map as Vite will handle imports -->
 	</head>
 	<body>
 		<div class="container">
@@ -185,26 +178,9 @@
 			</footer>
 		</div>
 
+		<!-- Update script references to use type="module" for both scripts -->
 		<script type="module" src="./src/background.js"></script>
-		<script src="./src/main.js"></script>
-    <script>
-        // Mobile menu functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            const mobileNav = document.querySelector('.mobile-nav');
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-            
-            menuBtn.addEventListener('click', function() {
-                mobileNav.classList.toggle('active');
-            });
-            
-            // Close menu when a link is clicked
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileNav.classList.remove('active');
-                });
-            });
-        });
+		<script type="module" src="./src/main.js"></script>
     </script>
 </body>
 </html>

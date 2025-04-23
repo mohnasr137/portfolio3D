@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         }, 50);
                     } else {
                         const categories = card.getAttribute('data-categories');
-                        if (categories && categories.split(' ').includes(selectedCategory)) {
+                        if (categories && categories.includes(selectedCategory)) {
                             card.classList.remove('hidden');
                             setTimeout(() => {
                                 card.style.opacity = '1';
@@ -66,6 +66,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             break;
                         case 'ml':
                             categoryText += 'ML/DL';
+                            break;
+                        case 'play':
+                            categoryText += 'Google Play';
                             break;
                         default:
                             categoryText += cat;

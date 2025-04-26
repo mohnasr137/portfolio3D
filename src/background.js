@@ -61,7 +61,7 @@ function init() {
     // Renderer
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth + (window.innerWidth / 4), window.innerHeight);
+    renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
     // Controls
@@ -103,8 +103,8 @@ function animate() {
 
 function render() {
     // Slowly rotate the scene for a more dynamic background
-    scene.rotation.y += 0.0005;
-    scene.rotation.x += 0.0002;
+    scene.rotation.y += 0.0008;
+    scene.rotation.x += 0.0004;
     
     renderer.render(scene, camera);
 }

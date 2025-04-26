@@ -168,7 +168,7 @@ section {
     margin-top: 0;
     color: #4fc3f7;
     font-size: 1.3rem;
-    margin-bottom: 12px;
+    margin-bottom: 0px;
 }
 
 .project-card p {
@@ -189,6 +189,7 @@ section {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     align-self: flex-start;
     margin-top: auto;
+    margin-bottom: 4px;
 }
 
 .project-card a:hover {

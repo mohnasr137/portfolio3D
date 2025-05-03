@@ -1,6 +1,17 @@
 import * as THREE from 'three';
 import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
 
+function isMobile() {
+    return /Mobi/i.test(navigator.userAgent);
+}
+
+const width = window.innerWidth;
+let height = window.innerHeight;
+if (isMobile()) {
+    console.log("Mobile detected");
+  height = height + height / 5;
+}
+
 let camera, controls, scene, renderer;
 const frustumSize = 1000;
 let assetsLoaded = false;
@@ -13,7 +24,7 @@ animate();
 
 function init() {
     // Camera setup
-    const aspect = window.innerWidth / window.innerHeight;
+    const aspect = width / height;
     camera = new THREE.PerspectiveCamera(60, aspect, 1, 2000);
     camera.position.z = 800;
 
@@ -61,7 +72,7 @@ function init() {
     // Renderer
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(width, height);
     document.body.appendChild(renderer.domElement);
 
     // Controls
@@ -92,6 +103,9 @@ function init() {
 }
 
 function onWindowResize() {
+    if (isMobile() && width == window.innerWidth) return;
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 

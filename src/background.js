@@ -92,7 +92,7 @@ function init() {
 }
 
 function onWindowResize() {
-    // ... existing code ...
+    renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
 function animate() {

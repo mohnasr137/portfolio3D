@@ -1,262 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<title>Mohamed Nasr - Portfolio</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link rel="stylesheet" href="./src/styles.css">
-		<!-- Remove the import map as Vite will handle imports -->
-	</head>
-	<body>
-		<!-- Add loading screen -->
-		<div id="loadingScreen" class="loading-screen">
-			<div class="loader"></div>
-			<p>Loading...</p>
-		</div>
-		<div class="container">
-			<nav>
-				<a href="#about">About</a>
-				<a href="#projects">Projects</a>
-				<a href="#skills">Skills</a>
-				<a href="#education">Education</a>
-				<a href="#experience">Experience</a>
-				<a href="#activities">Student Activities</a>
-				<a href="#contact">Contact</a>
-			</nav>
-			<!-- Mobile Navigation -->
-			<div class="mobile-nav">
-				<a href="#about">About</a>
-				<a href="#projects">Projects</a>
-				<a href="#skills">Skills</a>
-				<a href="#education">Education</a>
-				<a href="#experience">Experience</a>
-				<a href="#activities">Student Activities</a>
-				<a href="#contact">Contact</a>
-			</div>
-			<div class="mobile-menu-btn">≡</div>
-			<section id="about">
-				<h1>Greetings!👋 I'm Mohamed Nasr</h1>
-				<p class="intro-text">Backend Developer specializing in Node.js, with deep expertise in software architecture, data structures, and algorithms (B.Sc., Zagazig University). I design and build scalable, high-performance systems, driven by a commitment to clean code, efficiency, and continuous innovation.</p>
-			</section>
-			<section id="projects">
-                <h2>Projects</h2>
-				<div class="category-filters">
-                    <button class="category-btn active" data-category="all">All Projects</button>
-					<button class="category-btn" data-category="nodejs">Node.js</button>
-					<button class="category-btn" data-category="ml">Flask & ML/DL</button>
-					<button class="category-btn" data-category="web3d">Web3D</button>
-					<button class="category-btn" data-category="figma">Figma</button>
-					<button class="category-btn" data-category="play">Google Play</button>
-				</div>
-				<div class="project-grid">
-					<div class="project-card" data-categories="nodejs">
-                        <h3>TaskManager App</h3>
-						<p>Created an advanced task management system that improved user productivity.</p>
-						<a href="https://github.com/mohnasr137/taskManager" target="_blank">View Project</a>
-					</div>
-					<div class="project-card" data-categories="nodejs">
-                        <h3>Simple Portfolio</h3>
-						<p>Developed a website to showcase my projects, skills, and experience as a backend developer.</p>
-						<a href="https://github.com/mohnasr137/portfolio" target="_blank">View Project</a>
-					</div>
-					<div class="project-card" data-categories="nodejs">
-                        <h3>Marketi App</h3>
-						<p>Developed an e-commerce with JWT and product search/categorization features.</p>
-						<a href="https://github.com/mohnasr137/Marketi-App" target="_blank">View Project</a>
-					</div>
-					<div class="project-card" data-categories="nodejs">
-                        <h3>Edit Json</h3>
-						<p>Integrated JSON parsing functionality to enhance their capabilities for handling structured data.</p>
-						<a href="https://github.com/mohnasr137/edit-json" target="_blank">View Project</a>
-					</div>
-					<div class="project-card" data-categories="nodejs">
-						<h3>Inscryption</h3>
-						<p>Developed a 3D interactive web app featuring multiple cipher algorithms, AI-powered decryption for cryptographic operations.</p>
-						<a href="https://inscryption.onrender.com" target="_blank">View Project</a>
-					</div>
-					<div class="project-card" data-categories="nodejs">
-						<h3>UI Evolution</h3>
-						<p>Developed an AI-powered tool to automate UI component generation from text descriptions.</p>
-						<a href="https://github.com/mohnasr137/UI_Evolution" target="_blank">View Project</a>
-					</div>
-					<div class="project-card" data-categories="nodejs">
-						<h3>Remote Explorer</h3>
-						<p>Enable remote file exploration on PC from mobile, allowing to browse files and download folders as ZIP archives.</p>
-						<a href="https://github.com/mohnasr137/remoteExplorer" target="_blank">View Project</a>
-					</div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#06070b" />
+  <title>Mohamed Nasr — Backend Engineer</title>
+  <meta name="description" content="Mohamed Nasr is a backend engineer building secure, high-throughput systems with Go, Node.js, and distributed architecture." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="loading-screen" id="loadingScreen" aria-label="Loading portfolio">
+    <span class="loader-mark"></span>
+    <span>Compiling systems</span>
+  </div>
 
+  <header class="site-header">
+    <a href="#top" class="wordmark" aria-label="Mohamed Nasr home">
+      <span class="wordmark-mark"><img src="./assets/images/mohamed-nasr.jpg" alt="" /></span>
+      <span>Mohamed Nasr</span>
+    </a>
 
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a class="active" href="#top">Home</a>
+      <a href="#work">Selected work</a>
+      <a href="#approach">Approach</a>
+    </nav>
 
-					<div class="project-card" data-categories="web3d">
-						<h3>Cube3D</h3>
-						<p>Developed an spinning cube, demonstrating skills in 3D graphics and WebGL rendering.</p>
-						<a href="https://github.com/mohnasr137/cube3D" target="_blank">View Project</a>
-					</div>
-                    <div class="project-card" data-categories="web3d">
-						<h3>Earth3D</h3>
-                        <p>Created an interactive Earth with dynamic lighting, animated clouds, and a starry background.</p>
-                        <a href="https://github.com/mohnasr137/earth3D" target="_blank">View Project</a>
-                    </div>
-					<div class="project-card" data-categories="web3d">
-						<h3>Tube3D</h3>
-						<p>Built a dynamic tube with rotating cubes, smooth camera movements, and bloom effects.</p>
-						<a href="https://github.com/mohnasr137/tube3D" target="_blank">View Project</a>
-					</div>
-					<div class="project-card" data-categories="web3d">
-						<h3>Icosahedron3D</h3>
-						<p>Created a dynamic experience with scene transitions and real-time color animations.</p>
-						<a href="https://github.com/mohnasr137/icosahedron3D" target="_blank">View Project</a>
-					</div>
-					<div class="project-card" data-categories="web3d">
-						<h3>Gravity3D</h3>
-						<p>Developed an interactive physics simulation, featuring real-time object interactions.</p>
-						<a href="https://github.com/mohnasr137/gravity3D" target="_blank">View Project</a>
-					</div>
+    <a class="header-link" href="mailto:mohnasr113377@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a>
+    <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">Menu <span></span></button>
+  </header>
 
+  <div class="mobile-menu" aria-hidden="true">
+    <a href="#top">Home</a>
+    <a href="#work">Selected work</a>
+    <a href="#approach">Approach</a>
+    <a href="#contact">Contact</a>
+  </div>
 
+  <main id="top">
+    <section class="hero section-shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="availability-dot"></span> Available for backend & systems roles</p>
+        <h1 id="hero-title">Building the systems <em>behind</em> great products.</h1>
+        <p class="hero-summary">I’m Mohamed, a backend engineer focused on reliable APIs, identity infrastructure, and services that stay fast as they scale.</p>
 
-					<div class="project-card" data-categories="figma">
-						<h3>TaskNest APP</h3>
-						<p>Designed a team management app, inspired by WhatsApp, for task tracking, and team collaboration.</p>
-						<a href="https://www.figma.com/design/ENPUquvXEw3gJzJw3a4jD2/TaskNest" target="_blank">View Project</a>
-					</div>
-					<div class="project-card" data-categories="figma">
-						<h3>FastCharge App</h3>
-						<p>Designed a phone charging app that allows users to scan phone numbers to charge and make calls.</p>
-						<a href="https://www.figma.com/design/EH4rQqvuAWIdyiFIBoLlfe/FastCharge" target="_blank">View Project</a>
-					</div>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore selected work <span aria-hidden="true">↘</span></a>
+          <a class="text-link" href="https://github.com/mohnasr137" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        </div>
 
+        <div class="metrics" aria-label="Career highlights">
+          <div class="metric"><strong data-count="10000" data-suffix=" req/s">10,000 req/s</strong><span>JWT verification benchmark</span></div>
+          <div class="metric"><strong>Go / Node</strong><span>Core backend ecosystems</span></div>
+          <div class="metric"><strong>81.89%</strong><span>Computer Science honors</span></div>
+        </div>
+      </div>
 
+      <div class="architecture-stage" aria-label="Interactive three-dimensional backend architecture illustration">
+        <div class="stage-grid" aria-hidden="true"></div>
+        <div id="webgl-container"></div>
+        <div class="stage-topline"><span>LIVE ARCHITECTURE</span><span class="stage-status"><i></i> nominal</span></div>
+        <div class="stage-label stage-label--gateway"><span>01</span> API gateway</div>
+        <div class="stage-label stage-label--auth"><span>02</span> identity core</div>
+        <div class="stage-label stage-label--data"><span>03</span> data layer</div>
+        <div class="stage-bottomline"><span>MOVE YOUR CURSOR</span><span>3D / WEBGL</span></div>
+      </div>
+    </section>
 
+    <section id="work" class="work-section section-shell" aria-labelledby="work-title">
+      <div class="section-intro">
+        <p class="eyebrow">Selected systems <span>01 — 03</span></p>
+        <h2 id="work-title">A few things I’ve engineered from the inside out.</h2>
+        <p>Each project starts with the same question: what makes this dependable under real use?</p>
+      </div>
 
-					<div class="project-card" data-categories="ml">
-						<h3>Form Model</h3>
-						<p>Built a machine learning model to predict autism likelihood from questionnaire responses.</p>
-						<a href="https://github.com/mohnasr137/flask_ml" target="_blank">View Project</a>
-					</div>
-					<div class="project-card" data-categories="ml">
-						<h3>Childface Model</h3>
-						<p>Developed a deep learning model for child face recognition to assess autism likelihood.</p>
-						<a href="https://github.com/mohnasr137/flask_childface" target="_blank">View Project</a>
-					</div>
-					<div class="project-card" data-categories="ml">
-						<h3>Coloring Model</h3>
-						<p>Created a deep learning model to assess autism likelihood based on coloring patterns.</p>
-						<a href="https://github.com/mohnasr137/flask_coloring" target="_blank">View Project</a>
-					</div>
-					<div class="project-card" data-categories="ml">
-						<h3>Handwriting Model</h3>
-						<p>Developed a deep learning model to assess autism likelihood through handwriting analysis.</p>
-						<a href="https://github.com/mohnasr137/flask_handwriting" target="_blank">View Project</a>
-					</div>
+      <div class="project-list">
+        <article class="project-card project-card--featured">
+          <div class="project-index">01</div>
+          <div class="project-main">
+            <p class="project-type">Identity infrastructure · Go</p>
+            <h3>short-auth</h3>
+            <p class="project-description">A self-hosted auth microservice that combines a Go/Gin gateway with Keycloak—designed around local JWT verification, JWKS caching, refresh rotation, RBAC, and rate limits.</p>
+            <ul class="project-tags" aria-label="Technologies used"><li>Go</li><li>Gin</li><li>Keycloak</li><li>Docker</li><li>PostgreSQL</li></ul>
+          </div>
+          <div class="project-aside"><strong>10k</strong><span>requests / sec</span><a href="https://github.com/mohnasr137/short-auth" target="_blank" rel="noreferrer" aria-label="View short-auth repository">View system <b>↗</b></a></div>
+        </article>
 
+        <article class="project-card">
+          <div class="project-index">02</div>
+          <div class="project-main">
+            <p class="project-type">Commerce engine · Node.js</p>
+            <h3>market-i</h3>
+            <p class="project-description">A complete commerce API covering authentication, catalogue discovery, carts, vendor authorization, and Stripe payments—shaped around clear REST contracts and secure user flows.</p>
+            <ul class="project-tags" aria-label="Technologies used"><li>Node.js</li><li>Express</li><li>MongoDB</li><li>Stripe</li><li>JWT</li></ul>
+          </div>
+          <div class="project-aside"><strong>REST</strong><span>commerce API</span><a href="https://github.com/mohnasr137/market-i" target="_blank" rel="noreferrer" aria-label="View market-i repository">View system <b>↗</b></a></div>
+        </article>
 
+        <article class="project-card">
+          <div class="project-index">03</div>
+          <div class="project-main">
+            <p class="project-type">Lean web service · Go</p>
+            <h3>snip-it</h3>
+            <p class="project-description">A lightweight snippet-sharing platform built with Go’s standard library. Server-rendered templates, pgx connection pooling, and deliberate simplicity keep the system crisp.</p>
+            <ul class="project-tags" aria-label="Technologies used"><li>Go</li><li>net/http</li><li>PostgreSQL</li><li>pgx</li></ul>
+          </div>
+          <div class="project-aside"><strong>STD</strong><span>library first</span><a href="https://github.com/mohnasr137/snip-it" target="_blank" rel="noreferrer" aria-label="View snip-it repository">View system <b>↗</b></a></div>
+        </article>
+      </div>
 
-					<div class="project-card" data-categories="play">
-						<h3>Tadabar App</h3>
-						<p>Developed a Quran learning platform with Tajweed rules visualization and secure JWT-based user authentication.</p>
-						<a href="https://play.google.com/store/apps/details?id=com.binaryplus.tadabar" target="_blank">View Project</a>
-					</div>
-				</div>
-			</section>
-			<section id="skills">
-				<h2>Skills</h2>
-				<div class="skills-container">
-					<div class="skill-tag">C</div>
-					<div class="skill-tag">C++</div>
-					<div class="skill-tag"> CLion</div>
-					<div class="skill-tag">HTML</div>
-					<div class="skill-tag">CSS</div>
-                    <div class="skill-tag">JavaScript</div>
-					<div class="skill-tag">Node.js</div>
-					<div class="skill-tag">Express.js</div>
-					<div class="skill-tag">Three.js</div>
-					<div class="skill-tag">MongoDB</div>
-					<div class="skill-tag">PostgreSQL</div>
-					<div class="skill-tag">Postman</div>
-					<div class="skill-tag">Python</div>
-					<div class="skill-tag">Flask</div>
-					<div class="skill-tag">TensorFlow</div>
-					<div class="skill-tag">Scikit-learn</div>
-					<div class="skill-tag">Git</div>
-					<div class="skill-tag">Github</div>
-					<div class="skill-tag">Figma</div>
-				</div>
-			</section>
-            <section id="education">
-                <h2>Education</h2>
-                <div class="project-card">
-                    <h3>Zagazig University</h3>
-                    <p>Bachelor of Science in Computer Science</p>
-                    <p>Zagazig, September 2021 – June 2025</p>
-                </div>
-            </section>
-			<section id="experience">
-				<h2>Experience</h2>
-				<div class="project-card">
-					<h3>Backend Developer - Binary Plus Team</h3>
-					<p>September 2023 – September 2024 | Zagazig</p>
-					<p>Developed and maintained server-side logic for web applications using Node.js and Express. Assisted in frontend development, improving user interface consistency.</p>
-				</div>
-			</section>
-			<section id="activities">
-				<h2>Student Activities</h2>
-				<div class="project-card">
-					<h3>Backend Intern - EGI Team</h3>
-					<p>September 2022 – September 2023 | Zagazig</p>
-					<p>Completed internship with distinction, demonstrating strong backend development skills.  </p>
-				  </div>				  
-				<div class="project-card">
-					<h3>Backend Developer - 365 Developed Team</h3>
-					<p>September 2023 – June 2025 | Zagazig</p>
-					<p>Developed the backend for an app that aids in understanding autism and supports in diagnosing autism in children.</p>
-				</div>
-				<div class="project-card">
-					<h3>Backend Instructor - Zigzag Community</h3>
-					<p>November 2024 – August 2025 | Zagazig</p>
-					<p>Created roadmaps for sessions and conducted training to teach backend development to new recruits.</p>
-				</div>
-			</section>
-			<section id="contact">
-				<h2>Contact</h2>
-				<p class="contact-info">
-					Location: Zefta, Al Gharbeya, Egypt<br>
-					Phone: <a href="https://api.whatsapp.com/send?phone=201093669048" target="_blank">+201093669048</a><br>
-					Email: <a href="mailto:mohnasr113377@gmail.com">mohnasr113377@gmail.com</a><br>
-					LinkedIn: <a href="https://linkedin.com/in/mohnasr137" target="_blank">linkedin.com/in/mohnasr137</a><br>
-					GitHub: <a href="https://github.com/mohnasr137" target="_blank">github.com/mohnasr137</a>
-				</p>
-				<div class="social-links">
-					<!-- You can add social media icons here using Font Awesome or similar -->
-				</div>
-			</section>
-			<footer>
-				&copy; 2023 Mohamed Nasr. All rights reserved.
-			</footer>
-		</div>
+      <a class="all-work-link" href="https://github.com/mohnasr137" target="_blank" rel="noreferrer">See the full repository archive <span>↗</span></a>
+    </section>
 
-		<!-- Update script references to use type="module" for both scripts -->
-		<script type="module" src="./src/background.js"></script>
-		<script type="module" src="./src/main.js"></script>
+    <section id="approach" class="approach-section section-shell" aria-labelledby="approach-title">
+      <div class="section-intro">
+        <p class="eyebrow">Engineering approach <span>Designed for the long run</span></p>
+        <h2 id="approach-title">The details that make a service feel effortless.</h2>
+      </div>
 
-		<script>
-		    // Mobile menu functionality
-		    document.addEventListener('DOMContentLoaded', function() {
-		        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-		        const mobileNav = document.querySelector('.mobile-nav');
-		        
-		        mobileMenuBtn.addEventListener('click', function() {
-		            mobileNav.classList.toggle('active');
-		        });
-		        
-		        // Close mobile menu when a link is clicked
-		        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-		        mobileNavLinks.forEach(link => {
-		            link.addEventListener('click', function() {
-		                mobileNav.classList.remove('active');
-		            });
-		        });
-		    });
-		</script>
+      <div class="capability-grid">
+        <article class="capability-card">
+          <span class="capability-number">/ 01</span>
+          <h3>Clear service boundaries</h3>
+          <p>Thoughtful API contracts, dependable error paths, and clean architecture that let teams move without breaking each other.</p>
+          <div class="capability-line"></div>
+          <span class="capability-stack">Go · Node.js · REST · Microservices</span>
+        </article>
+        <article class="capability-card capability-card--accent">
+          <span class="capability-number">/ 02</span>
+          <h3>Security as a system</h3>
+          <p>Identity and access control designed as core infrastructure, from OAuth flows and JWTs to secure token lifecycles.</p>
+          <div class="capability-line"></div>
+          <span class="capability-stack">Keycloak · OAuth 2.0 · OIDC · RBAC</span>
+        </article>
+        <article class="capability-card">
+          <span class="capability-number">/ 03</span>
+          <h3>Performance with proof</h3>
+          <p>Database decisions, caching, and observability made deliberately—because speed is an outcome you should be able to measure.</p>
+          <div class="capability-line"></div>
+          <span class="capability-stack">PostgreSQL · MongoDB · Docker · Linux</span>
+        </article>
+      </div>
+
+      <div class="experience-strip">
+        <p>Currently building and guiding backend teams at <strong>Binary Plus / 365 Developed</strong>. Previously a Backend Instructor at Zigzag Community.</p>
+        <span>Egypt · Remote-ready</span>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section section-shell" aria-labelledby="contact-title">
+      <div>
+        <p class="eyebrow">Start a conversation</p>
+        <h2 id="contact-title">Need an engineer who cares how it holds up?</h2>
+      </div>
+      <div class="contact-actions">
+        <a class="button button-primary" href="mailto:mohnasr113377@gmail.com">mohnasr113377@gmail.com <span aria-hidden="true">↗</span></a>
+        <button class="copy-button" type="button" data-copy="mohnasr113377@gmail.com">Copy email <span aria-hidden="true">⧉</span></button>
+        <div class="social-links"><a href="https://linkedin.com/in/mohnasr137" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://api.whatsapp.com/send?phone=201093669048" target="_blank" rel="noreferrer">WhatsApp ↗</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>© 2026 Mohamed Nasr</span><span>Backend engineering, made with intent.</span></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite">Email copied to clipboard.</div>
+
+  <script type="module" src="./src/background.js"></script>
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>

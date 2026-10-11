@@ -1,109 +1,98 @@
-// Project filtering functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    const projectCards = document.querySelectorAll('#projects .project-card');
-    
-    // Add click event to category buttons
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            const selectedCategory = this.getAttribute('data-category');
-            
-            // Filter projects with animation
-            projectCards.forEach(card => {
-                // First make all cards slightly transparent
-                card.style.opacity = '0.4';
-                card.style.transform = 'scale(0.95)';
-                
-                setTimeout(() => {
-                    if (selectedCategory === 'all') {
-                        card.classList.remove('hidden');
-                        setTimeout(() => {
-                            // Remove inline styles after animation to allow CSS hover to work
-                            card.style.opacity = '';
-                            card.style.transform = '';
-                        }, 50);
-                    } else {
-                        const categories = card.getAttribute('data-categories');
-                        if (categories && categories.includes(selectedCategory)) {
-                            card.classList.remove('hidden');
-                            setTimeout(() => {
-                                // Remove inline styles after animation to allow CSS hover to work
-                                card.style.opacity = '';
-                                card.style.transform = '';
-                            }, 50);
-                        } else {
-                            card.classList.add('hidden');
-                        }
-                    }
-                }, 200);
-            });
-        });
-    });
-    
-    // Update category indicators based on data-categories
-    projectCards.forEach(card => {
-        const categoriesAttr = card.getAttribute('data-categories');
-        if (categoriesAttr) {
-            const categories = categoriesAttr.split(' ');
-            const indicator = card.querySelector('.category-indicator');
-            
-            if (indicator) {
-                let categoryText = '';
-                categories.forEach((cat, index) => {
-                    switch(cat) {
-                        case 'web3d':
-                            categoryText += 'Web 3D';
-                            break;
-                        case 'nodejs':
-                            categoryText += 'Node.js';
-                            break;
-                        case 'figma':
-                            categoryText += 'Figma';
-                            break;
-                        case 'ml':
-                            categoryText += 'ML/DL';
-                            break;
-                        case 'play':
-                            categoryText += 'Google Play';
-                            break;
-                        default:
-                            categoryText += cat;
-                    }
-                    
-                    if (index < categories.length - 1) {
-                        categoryText += ', ';
-                    }
-                });
-                
-                indicator.textContent = categoryText;
-            }
-        }
-    });
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+document.addEventListener('DOMContentLoaded', () => {
+  initNavigation();
+  initCopyButton();
+  initReveals();
+  initCounter();
+  window.setTimeout(() => document.getElementById('loadingScreen')?.classList.add('is-hidden'), 450);
 });
 
-// Mobile navigation functionality
-document.addEventListener('DOMContentLoaded', function() {
-    initProjectFilters();
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const mobileNav = document.querySelector('.mobile-nav');
-    
-    if (mobileMenuBtn && mobileNav) {
-        mobileMenuBtn.addEventListener('click', function() {
-            mobileNav.classList.toggle('active');
-        });
-        
-        // Close mobile menu when a link is clicked
-        const mobileNavLinks = mobileNav.querySelectorAll('a');
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileNav.classList.remove('active');
-            });
-        });
+function initNavigation() {
+  const button = document.querySelector('.menu-button');
+  const menu = document.querySelector('.mobile-menu');
+  const navLinks = [...document.querySelectorAll('.desktop-nav a')];
+  const menuLinks = [...document.querySelectorAll('.mobile-menu a')];
+
+  const toggleMenu = (open) => {
+    menu.classList.toggle('is-open', open);
+    button.classList.toggle('is-open', open);
+    button.setAttribute('aria-expanded', String(open));
+    menu.setAttribute('aria-hidden', String(!open));
+    document.body.classList.toggle('menu-open', open);
+  };
+
+  button?.addEventListener('click', () => toggleMenu(!menu.classList.contains('is-open')));
+  menuLinks.forEach((link) => link.addEventListener('click', () => toggleMenu(false)));
+
+  const sections = [...document.querySelectorAll('main section[id]')];
+  const updateActiveLink = () => {
+    const checkpoint = window.scrollY + window.innerHeight * 0.28;
+    let active = 'top';
+    sections.forEach((section) => {
+      if (section.offsetTop <= checkpoint) active = section.id;
+    });
+    navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${active}`));
+  };
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink();
+}
+
+function initCopyButton() {
+  const button = document.querySelector('[data-copy]');
+  const toast = document.getElementById('toast');
+  let timer;
+
+  button?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(button.dataset.copy);
+      button.innerHTML = 'Copied <span aria-hidden="true">✓</span>';
+      toast.classList.add('is-visible');
+      clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        button.innerHTML = 'Copy email <span aria-hidden="true">⧉</span>';
+        toast.classList.remove('is-visible');
+      }, 2200);
+    } catch {
+      window.location.href = `mailto:${button.dataset.copy}`;
     }
-});
+  });
+}
+
+function initReveals() {
+  if (reduceMotion || !('IntersectionObserver' in window)) return;
+  const targets = document.querySelectorAll('.project-card, .capability-card, .experience-strip, .contact-section');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.14 });
+  targets.forEach((target, index) => {
+    target.style.transitionDelay = `${Math.min(index * 65, 210)}ms`;
+    observer.observe(target);
+  });
+}
+
+function initCounter() {
+  const counter = document.querySelector('[data-count]');
+  if (!counter || reduceMotion) return;
+  const total = Number(counter.dataset.count);
+  const suffix = counter.dataset.suffix || '';
+  let started = false;
+  const observer = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting || started) return;
+    started = true;
+    const begin = performance.now();
+    const duration = 1050;
+    const update = (now) => {
+      const progress = Math.min((now - begin) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      counter.textContent = `${Math.round(total * eased).toLocaleString()}${suffix}`;
+      if (progress < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }, { threshold: 0.6 });
+  observer.observe(counter);
+}
